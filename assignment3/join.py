@@ -28,9 +28,8 @@ def mapper(record):
 def reducer(key, list_of_records):
     # key: order_id
     # value: list of records
-    value = list_of_records
-    order_rec = value[0]
-    for rec in value[1:]:
+    order_rec = list_of_records[0]
+    for rec in list_of_records[1:]:
         joined_rec = order_rec + rec
         mr.emit(joined_rec)
 # Do not modify below this line
